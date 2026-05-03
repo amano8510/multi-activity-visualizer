@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import json
 import math
 import pickle
@@ -19,8 +20,10 @@ except ImportError:  # pragma: no cover - shown as a friendly runtime error
     fitdecode = None
 
 
-HOST = "127.0.0.1"
-PORT = 8765
+#HOST = "127.0.0.1"
+#PORT = 8765
+HOST = os.environ.get("HOST", "127.0.0.1")
+PORT = int(os.environ.get("PORT", 8765))
 MAX_UPLOAD_BYTES = 120 * 1024 * 1024
 
 
